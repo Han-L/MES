@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2854BDAE1B54AC6B003D4339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854BDAD1B54AC6B003D4339 /* AppDelegate.swift */; };
-		2854BDB01B54AC6B003D4339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854BDAF1B54AC6B003D4339 /* ViewController.swift */; };
+		2854BDB01B54AC6B003D4339 /* QRCodeReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854BDAF1B54AC6B003D4339 /* QRCodeReadingViewController.swift */; };
 		2854BDB31B54AC6B003D4339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2854BDB11B54AC6B003D4339 /* Main.storyboard */; };
 		2854BDB51B54AC6B003D4339 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2854BDB41B54AC6B003D4339 /* Images.xcassets */; };
 		2854BDB81B54AC6B003D4339 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2854BDB61B54AC6B003D4339 /* LaunchScreen.xib */; };
 		2854BDC41B54AC6B003D4339 /* QRCodeReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854BDC31B54AC6B003D4339 /* QRCodeReaderTests.swift */; };
+		2899FA1C1B54D7D500DC946A /* JobDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899FA1B1B54D7D500DC946A /* JobDetailsTableViewController.swift */; };
+		2899FA1E1B552B2800DC946A /* NumberEnteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899FA1D1B552B2800DC946A /* NumberEnteringViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		2854BDA81B54AC6B003D4339 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2854BDAC1B54AC6B003D4339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2854BDAD1B54AC6B003D4339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2854BDAF1B54AC6B003D4339 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2854BDAF1B54AC6B003D4339 /* QRCodeReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReadingViewController.swift; sourceTree = "<group>"; };
 		2854BDB21B54AC6B003D4339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2854BDB41B54AC6B003D4339 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2854BDB71B54AC6B003D4339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2854BDBD1B54AC6B003D4339 /* QRCodeReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRCodeReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2854BDC21B54AC6B003D4339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2854BDC31B54AC6B003D4339 /* QRCodeReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderTests.swift; sourceTree = "<group>"; };
+		2899FA1B1B54D7D500DC946A /* JobDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsTableViewController.swift; sourceTree = "<group>"; };
+		2899FA1D1B552B2800DC946A /* NumberEnteringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberEnteringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				2854BDAD1B54AC6B003D4339 /* AppDelegate.swift */,
-				2854BDAF1B54AC6B003D4339 /* ViewController.swift */,
+				2854BDAF1B54AC6B003D4339 /* QRCodeReadingViewController.swift */,
+				2899FA1B1B54D7D500DC946A /* JobDetailsTableViewController.swift */,
+				2899FA1D1B552B2800DC946A /* NumberEnteringViewController.swift */,
 				2854BDB11B54AC6B003D4339 /* Main.storyboard */,
 				2854BDB41B54AC6B003D4339 /* Images.xcassets */,
 				2854BDB61B54AC6B003D4339 /* LaunchScreen.xib */,
@@ -212,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2854BDB01B54AC6B003D4339 /* ViewController.swift in Sources */,
+				2854BDB01B54AC6B003D4339 /* QRCodeReadingViewController.swift in Sources */,
+				2899FA1E1B552B2800DC946A /* NumberEnteringViewController.swift in Sources */,
 				2854BDAE1B54AC6B003D4339 /* AppDelegate.swift in Sources */,
+				2899FA1C1B54D7D500DC946A /* JobDetailsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +417,7 @@
 				2854BDC91B54AC6B003D4339 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2854BDCA1B54AC6B003D4339 /* Build configuration list for PBXNativeTarget "QRCodeReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +426,7 @@
 				2854BDCC1B54AC6B003D4339 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
