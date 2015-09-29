@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class QRCodeReaderTests: XCTestCase {
+class MESTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
