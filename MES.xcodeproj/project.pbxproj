@@ -14,7 +14,9 @@
 		2854BDB81B54AC6B003D4339 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2854BDB61B54AC6B003D4339 /* LaunchScreen.xib */; };
 		2854BDC41B54AC6B003D4339 /* MESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854BDC31B54AC6B003D4339 /* MESTests.swift */; };
 		2870FF151B9E72C400E91CBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870FF141B9E72C400E91CBA /* MainViewController.swift */; };
-		2899FA1C1B54D7D500DC946A /* JobDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899FA1B1B54D7D500DC946A /* JobDetailsTableViewController.swift */; };
+		2899FA1C1B54D7D500DC946A /* PersonalInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899FA1B1B54D7D500DC946A /* PersonalInformationTableViewController.swift */; };
+		28BE9FCB1BC60947001F9F75 /* ProductSeriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9FCA1BC60947001F9F75 /* ProductSeriesCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		28BE9FCF1BC649D0001F9F75 /* PhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9FCE1BC649D0001F9F75 /* PhotoImage.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,9 @@
 		2854BDC21B54AC6B003D4339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2854BDC31B54AC6B003D4339 /* MESTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MESTests.swift; sourceTree = "<group>"; };
 		2870FF141B9E72C400E91CBA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		2899FA1B1B54D7D500DC946A /* JobDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsTableViewController.swift; sourceTree = "<group>"; };
+		2899FA1B1B54D7D500DC946A /* PersonalInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationTableViewController.swift; sourceTree = "<group>"; };
+		28BE9FCA1BC60947001F9F75 /* ProductSeriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSeriesCollectionViewController.swift; sourceTree = "<group>"; };
+		28BE9FCE1BC649D0001F9F75 /* PhotoImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +87,11 @@
 			children = (
 				2854BDAD1B54AC6B003D4339 /* AppDelegate.swift */,
 				2854BDAF1B54AC6B003D4339 /* QRCodeReadingViewController.swift */,
-				2899FA1B1B54D7D500DC946A /* JobDetailsTableViewController.swift */,
+				2899FA1B1B54D7D500DC946A /* PersonalInformationTableViewController.swift */,
 				2870FF141B9E72C400E91CBA /* MainViewController.swift */,
 				2854BDB11B54AC6B003D4339 /* Main.storyboard */,
+				28BE9FCA1BC60947001F9F75 /* ProductSeriesCollectionViewController.swift */,
+				28BE9FCE1BC649D0001F9F75 /* PhotoImage.swift */,
 				2854BDB41B54AC6B003D4339 /* Images.xcassets */,
 				2854BDB61B54AC6B003D4339 /* LaunchScreen.xib */,
 				2854BDAB1B54AC6B003D4339 /* Supporting Files */,
@@ -221,7 +227,9 @@
 			files = (
 				2854BDB01B54AC6B003D4339 /* QRCodeReadingViewController.swift in Sources */,
 				2854BDAE1B54AC6B003D4339 /* AppDelegate.swift in Sources */,
-				2899FA1C1B54D7D500DC946A /* JobDetailsTableViewController.swift in Sources */,
+				28BE9FCB1BC60947001F9F75 /* ProductSeriesCollectionViewController.swift in Sources */,
+				2899FA1C1B54D7D500DC946A /* PersonalInformationTableViewController.swift in Sources */,
+				28BE9FCF1BC649D0001F9F75 /* PhotoImage.swift in Sources */,
 				2870FF151B9E72C400E91CBA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
