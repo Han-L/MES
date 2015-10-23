@@ -10,35 +10,52 @@ import UIKit
 
 private let reuseIdentifier = "productSeries"
 private let sectionInsects = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-private let product = [["name": "SUPERMAX 800", "image": "SUPERMAX 800.png"],
-    ["name": "SUPERMAX 2000", "image": "SUPERMAX 2000.png"],
-    ["name": "NuPAC", "image": "NuPAC.png"],
-    ["name": "压力变送器", "image": "压力变送器.png"],
-]
+private let product = [["name": productSeries[0], "image": "\(productSeries[0]).png"],
+    ["name": productSeries[1], "image": "\(productSeries[1]).png"],
+    ["name": productSeries[2], "image": "\(productSeries[2]).png"],
+    ["name": productSeries[3], "image": "\(productSeries[3]).png"]]
 
-class ProductSeriesCollectionViewController: UICollectionViewController {
+
+
+class ProductSeriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverPresentationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem?.title = staff.name
     }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let tvc = segue.destinationViewController as? BoardTypeTableViewController {
+            tvc.title = (sender!.contentView.viewWithTag(1001) as! UILabel).text! + "卡件类型"
+        }
+        
+        if segue.identifier == "logoutPage" {
+            if let tvc = segue.destinationViewController as? LogoutTableViewController {
+                if let ppc = tvc.popoverPresentationController {
+                    ppc.permittedArrowDirections = UIPopoverArrowDirection.Up
+                    ppc.delegate = self
+                }
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
     }
 
 
     // MARK: UICollectionViewDataSource
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return product.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
     
         // Configure the cell
@@ -47,21 +64,11 @@ class ProductSeriesCollectionViewController: UICollectionViewController {
     
         return cell
     }
-    
-    
-    
 
-    // MARK: UICollectionViewDelegate
-
-    
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
 }
 
 
-extension ProductSeriesCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension ProductSeriesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = collectionView.frame.width / 2 - 30
         let height = width

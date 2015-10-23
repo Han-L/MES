@@ -1,167 +1,280 @@
 //
-//  ViewController.swift
-//  QRCodeReader
+//  LGScanViewController.swift
+//  LGScanViewController
 //
-//  Created by Han_Luo on 14/07/2015.
-//  Copyright (c) 2015 Han_Luo. All rights reserved.
+//  Created by jamy on 15/9/22.
+//  Copyright © 2015年 jamy. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
-class QRCodeReadingViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+
+class QRCodeReadingViewController: UIViewController , AVCaptureMetadataOutputObjectsDelegate{
+
     
-    @IBOutlet weak var messageLabel:UILabel!
+    let screenSize = UIScreen.mainScreen().bounds.size
+    let screenWidth = UIScreen.mainScreen().bounds.size.width
+    let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+    var traceNumber = 0
+    var upORdown = false
+    var timer: NSTimer!
+    var barCodeDetected = false
+    var decodingValue: String?
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    var device: AVCaptureDevice!
+    var input: AVCaptureDeviceInput!
+    var output: AVCaptureMetadataOutput!
+    var session: AVCaptureSession!
+    var preView: AVCaptureVideoPreviewLayer!
+    var line: UIImageView!
     
-    @IBOutlet weak var loadingSymbol: UIActivityIndicatorView!
+    let supportedBarCodes = [
+        AVMetadataObjectTypeQRCode,
+        AVMetadataObjectTypeCode128Code,
+        AVMetadataObjectTypeCode39Code,
+        AVMetadataObjectTypeCode93Code,
+        AVMetadataObjectTypeUPCECode,
+        AVMetadataObjectTypePDF417Code,
+        AVMetadataObjectTypeEAN13Code,
+        AVMetadataObjectTypeAztecCode,
+        AVMetadataObjectTypeDataMatrixCode
+    ]
     
     @IBAction func cancel(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    var captureSession:AVCaptureSession?
-    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView:UIView?
-    
-    var decodingValue: String?
-    
-    // Added to support different barcodes
-    let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
-    
+    // MARK: - init functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
-        // as the media type parameter.
-        let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        
-        // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-        var error: NSError?
-        let input: AnyObject!
-        do {
-            input = try AVCaptureDeviceInput(device: captureDevice)
-        } catch let error1 as NSError {
-            error = error1
-            input = nil
-        }
-        
-        if (error != nil) {
-            // If any error occurs, simply log the description of it and don't continue any more.
-            print("\(error?.localizedDescription)")
+        if !setupCamera() {
             return
         }
         
-        // Initialize the captureSession object.
-        captureSession = AVCaptureSession()
-        // Set the input device on the capture session.
-        captureSession?.addInput(input as! AVCaptureInput)
-        
-        // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-        let captureMetadataOutput = AVCaptureMetadataOutput()
-        captureSession?.addOutput(captureMetadataOutput)
-        
-        // Set delegate and use the default dispatch queue to execute the call back
-        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-        captureMetadataOutput.metadataObjectTypes = supportedBarCodes
-        
-        // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
-        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        videoPreviewLayer?.frame = view.layer.bounds
-        view.layer.addSublayer(videoPreviewLayer!)
-        
-        // Start video capture.
-        captureSession?.startRunning()
-        
-        // Move the message label to the top view
-        messageLabel.textColor = UIColor.whiteColor()
-        view.bringSubviewToFront(messageLabel)
-        
-        // Initialize QR Code Frame to highlight the QR code
-        qrCodeFrameView = UIView()
-        qrCodeFrameView?.layer.borderColor = UIColor.redColor().CGColor
-        qrCodeFrameView?.layer.borderWidth = 2
-        view.addSubview(qrCodeFrameView!)
-        
-        view.bringSubviewToFront(qrCodeFrameView!)
-        
-        view.bringSubviewToFront(navigationBar)
-        
-        view.bringSubviewToFront(loadingSymbol)
+        setupScanLine()
     }
     
-    var barCodeDetected: Bool = false
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        session.startRunning()
+        timer = NSTimer(timeInterval: 0.02, target: self, selector: "scanLineAnimation", userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        traceNumber = 0
+        upORdown = false
+        session.stopRunning()
+        timer.invalidate()
+        timer = nil
         
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRectZero
-            messageLabel.text = "没有检测到二维码"
-            return
+        super.viewWillDisappear(animated)
+    }
+    
+    func setupCamera() -> Bool {
+        device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        do {
+          input = try AVCaptureDeviceInput(device: device)
+        }
+        catch let error as NSError {
+            print(error.localizedDescription)
+            return false
         }
         
-        // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        output = AVCaptureMetadataOutput()
+        output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        output.rectOfInterest = makeScanReaderInterestRect()
         
-        // Here we use filter method to check if the type of metadataObj is supported
-        // Instead of hardcoding the AVMetadataObjectTypeQRCode, we check if the type
-        // can be found in the array of supported bar codes.
-        if supportedBarCodes.filter({ $0 == metadataObj.type }).count > 0 {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataObj as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
-            qrCodeFrameView?.frame = barCodeObject.bounds
-            
-            
-            if metadataObj.stringValue != nil {
-                decodingValue = metadataObj.stringValue
-                messageLabel.text = ""
-                if barCodeDetected == false {
-                    launchApp(decodingValue!)
-                    barCodeDetected = true
-                }
+        session = AVCaptureSession()
+        session.sessionPreset = AVCaptureSessionPresetHigh
+        if session.canAddInput(input)
+        {
+            session.addInput(input)
+        }
+        if session.canAddOutput(output)
+        {
+            session.addOutput(output)
+        }
+        
+        output.metadataObjectTypes = supportedBarCodes
+        
+        preView = AVCaptureVideoPreviewLayer(session: session)
+        preView.videoGravity = AVLayerVideoGravityResizeAspectFill
+        preView.frame = self.view.bounds
+        
+        let shadowView = makeScanCameraShadowView(makeScanReaderRect())
+        self.view.layer.insertSublayer(preView, atIndex: 0)
+        self.view.addSubview(shadowView)
+        
+        return true
+    }
+    
+    func setupScanLine() {
+        let rect = makeScanReaderRect()
+        
+        var imageSize: CGFloat = 20.0
+        let imageX = rect.origin.x
+        let imageY = rect.origin.y
+        let width = rect.size.width
+        let height = rect.size.height + 2
+        
+        // four corners
+        let imageViewTL = UIImageView(frame: CGRectMake(imageX, imageY, imageSize, imageSize))
+        imageViewTL.image = UIImage(named: "scan_tl")
+        imageSize = (imageViewTL.image?.size.width)!
+        self.view.addSubview(imageViewTL)
+        
+        let imageViewTR = UIImageView(frame: CGRectMake(imageX + width - imageSize, imageY, imageSize, imageSize))
+        imageViewTR.image = UIImage(named: "scan_tr")
+        self.view.addSubview(imageViewTR)
+        
+        let imageViewBL = UIImageView(frame: CGRectMake(imageX, imageY + height - imageSize, imageSize, imageSize))
+        imageViewBL.image = UIImage(named: "scan_bl")
+        self.view.addSubview(imageViewBL)
+        
+        let imageViewBR = UIImageView(frame: CGRectMake(imageX + width - imageSize, imageY + height - imageSize, imageSize, imageSize))
+        imageViewBR.image = UIImage(named: "scan_br")
+        self.view.addSubview(imageViewBR)
+        
+        line = UIImageView(frame: CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, 2))
+        line.image = UIImage(named: "scan_line")
+        self.view.addSubview(line)
+    }
+    
+    // MARK: - Rects
+    func makeScanReaderRect() -> CGRect {
+        let scanSize = (min(screenWidth, screenHeight) * 3) / 5
+        let x = (screenWidth - scanSize) / 2
+        let y = (screenHeight - scanSize) / 2
+        let width = scanSize
+        let height = scanSize
+        let scanRect = CGRectMake(x, y, width, height)
+        
+        return scanRect
+    }
+    
+    func makeScanReaderInterestRect() -> CGRect {
+        let rect = makeScanReaderRect()
+        let x = rect.origin.x / screenWidth
+        let y = rect.origin.y / screenHeight
+        let width = rect.size.width / screenWidth
+        let height = rect.size.height / screenHeight
+        
+        let scanRectOfInterest = CGRectMake(y, x, height, width)
+        
+        return scanRectOfInterest
+    }
+    
+    func makeScanCameraShadowView(innerRect: CGRect) -> UIView {
+        let referenceImage = UIImageView(frame: self.view.bounds)
+        
+        UIGraphicsBeginImageContext(referenceImage.frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetRGBFillColor(context, 0, 0, 0, 0.5)
+        var drawRect = CGRectMake(0, 0, screenWidth, screenHeight)
+        CGContextFillRect(context, drawRect)
+        drawRect = CGRectMake(innerRect.origin.x - referenceImage.frame.origin.x, innerRect.origin.y - referenceImage.frame.origin.y, innerRect.size.width, innerRect.size.height)
+        CGContextClearRect(context, drawRect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        referenceImage.image = image
+        
+        return referenceImage
+    }
+    
+    // MARK: endless timer
+    
+    func scanLineAnimation() {
+        let rect = makeScanReaderRect()
+        
+        let lineFrameX = rect.origin.x
+        let lineFrameY = rect.origin.y
+        let downHeight = rect.size.height
+        
+        if upORdown == false {
+            traceNumber++
+            line.frame = CGRectMake(lineFrameX, lineFrameY + CGFloat(2 * traceNumber), downHeight, 2)
+            if CGFloat(2 * traceNumber) > downHeight - 2 {
+                upORdown = true
+            }
+        }
+        else
+        {
+            traceNumber--
+            line.frame = CGRectMake(lineFrameX, lineFrameY + CGFloat(2 * traceNumber), downHeight, 2)
+            if traceNumber == 0 {
+                upORdown = false
             }
         }
     }
     
-    func launchApp(decodedNumber: String) {
+    
+    // MARK: AVCaptureMetadataOutputObjectsDelegate
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        if metadataObjects == nil || metadataObjects.count == 0 {
+            return
+        }
+        
+        let metadata = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if supportedBarCodes.filter({ $0 == metadata.type }).count > 0 {
+            if let decodingValue = metadata.stringValue {
+                if barCodeDetected == false {
+                    showResults(decodingValue)
+                    self.decodingValue = decodingValue
+                    barCodeDetected = true
+                }
+            }
+        }
+
+    }
+    
+    func showResults(decodedNumber: String) {
         let alertPrompt = UIAlertController(title: "登入", message: "你即将登入 \(decodedNumber)", preferredStyle: .ActionSheet)
         
         let confirmAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             
-            self.loadingSymbol.hidden = true
             self.barCodeDetected = false
             self.performSegueWithIdentifier("showDetails", sender: nil)
             
         })
         
         let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
-            self.loadingSymbol.hidden = true
             self.barCodeDetected = false
         })
         
         alertPrompt.addAction(confirmAction)
         alertPrompt.addAction(cancelAction)
         
-        loadingSymbol.hidden = false
-        
         presentViewController(alertPrompt, animated: true, completion: nil)
         
     }
     
-   
+    // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetails" {
-            let navigationController = segue.destinationViewController as! UINavigationController
-            let controller = navigationController.topViewController as! PersonalInformationTableViewController
-            controller.idNumber = decodingValue
+            if let navigationController = segue.destinationViewController as? UINavigationController {
+                if let controller = navigationController.visibleViewController as? PersonalInformationTableViewController {
+                    controller.idNumber = decodingValue
+                    controller.visitorModeOn = false
+                }
+            }
         }
     }
 
+    
+    
+    
 }
-
 
 
 

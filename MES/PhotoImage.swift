@@ -11,7 +11,8 @@ import UIKit
 class PhotoImage: UIImageView {
 
     override func awakeFromNib() {
-        self.layer.borderColor = UIColor.blackColor().CGColor
-        self.layer.borderWidth = 3
+        self.layer.borderColor = UIColor.darkGrayColor().CGColor
+        self.layer.cornerRadius = 10
+        self.layer.borderWidth = 1
     }
 }

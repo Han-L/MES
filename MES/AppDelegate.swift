@@ -8,17 +8,23 @@
 
 import UIKit
 
-let themeColor = UIColor(red: 0.01, green: 0.41, blue: 0.22, alpha: 1.0)
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let themeColor = UIColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         window?.tintColor = themeColor
+        
+        window?.backgroundColor = UIColor.whiteColor() // 去除导航栏黑影
+        //UINavigationBar.appearance().barStyle = .Default
+        //UINavigationBar.appearance().opaque = false
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: themeColor]
+        //UINavigationBar.appearance().tintColor = UIColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1)
+        sleep(1)
         return true
     }
 
