@@ -10,38 +10,38 @@ import UIKit
 
 class LogoutTableViewController: UITableViewController {
 
+    @IBOutlet weak var staffName: UILabel!
+    @IBOutlet weak var productName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = staff.name
-    }
-
-
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    
-    
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        if indexPath.row == 0 {
-            return nil
+        staffName.text = staff.name
+        
+        if card.cardSerial != nil {
+            productName.text = card.cardType! + ", " + card.cardSerial! + ", " + card.manName! + ", " + card.productionBatch!
         } else {
-            return indexPath
+            productName.text = "暂无扫描产品"
         }
+
     }
+    
+      
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if indexPath.row == 1 {
+        if indexPath.section == 1 && indexPath.row == 1 {
+            productName.text = "暂无扫描产品"
+            
+            resetCard()
+        }
+        
+        if indexPath.section == 0 && indexPath.row == 1 {
             let myStoryBoard = self.storyboard
             let mainVC = myStoryBoard!.instantiateViewControllerWithIdentifier("main")
             mainVC.modalTransitionStyle = .CrossDissolve
             self.presentViewController(mainVC, animated: true, completion: nil)
             
-            
             resetStaff()
-            resetCard()
         }
     }
-    
-    
 }

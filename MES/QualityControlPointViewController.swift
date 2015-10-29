@@ -16,22 +16,33 @@ class QualityControlPointViewController: UIViewController{
     var hud = MBProgressHUD()
     
     var finalProcess: String?
+    var result = "OK"
+    let results = ["OK", "NG"]
+    
     
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var resultPicker: UIPickerView!
     
-    @IBAction func ok() {
-        stateLabel.text = "记录结果：OK"
+    @IBAction func pickYourResult() {
+        resultPicker.hidden = false
         self.navigationItem.rightBarButtonItem?.enabled = true
     }
     
-    @IBAction func ng() {
-        stateLabel.text = "记录结果：NG"
-        self.navigationItem.rightBarButtonItem?.enabled = true
+    @IBAction func goBack() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     @IBAction func save(sender: AnyObject) {
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 3
         
+        alamofireManager = Alamofire.Manager(configuration: configuration)
+        
+        alamofireManager!.request(.POST, "http://172.16.101.116:3333/Service1.asmx/insertRecordInfo", parameters: ["Pnum": "\(staff.idNumber!)", "Pname": "\(staff.name!)", "Process_Name": "01", "Process_Item": "\(result)", "Card_Type": "\(card.cardType!)", "Card_Serial": "\(card.cardSerial!)", "Man_Name": "\(card.manName!)", "Production_Batch": "\(card.productionBatch!)"]).responseData({ response in print(response.result)})
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    
     }
     
     
@@ -87,6 +98,29 @@ class QualityControlPointViewController: UIViewController{
     }
     
     
+}
+
+extension QualityControlPointViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return results.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return results[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        result = results[row]
+        print(result)
+    }
 }
 
 

@@ -7,30 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		284675721BD0E832007AB152 /* LogoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284675711BD0E832007AB152 /* LogoutTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2846BCC71BC79BDC00A61CD9 /* BoardTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846BCC61BC79BDC00A61CD9 /* BoardTypeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		28101D8F1BE0AA6E0081E982 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28101D8D1BE0AA6E0081E982 /* MyNavigationController.swift */; };
+		28101D901BE0AA6E0081E982 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28101D8E1BE0AA6E0081E982 /* MyTabBarController.swift */; };
+		284675721BD0E832007AB152 /* LogoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284675711BD0E832007AB152 /* LogoutTableViewController.swift */; };
+		2846BCC71BC79BDC00A61CD9 /* BoardTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846BCC61BC79BDC00A61CD9 /* BoardTypeTableViewController.swift */; };
+		284C72B61BDB625D00F179B2 /* RecordReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284C72B51BDB625D00F179B2 /* RecordReviewCell.xib */; };
 		2854BDAE1B54AC6B003D4339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854BDAD1B54AC6B003D4339 /* AppDelegate.swift */; };
 		2854BDB31B54AC6B003D4339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2854BDB11B54AC6B003D4339 /* Main.storyboard */; };
 		2854BDB51B54AC6B003D4339 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2854BDB41B54AC6B003D4339 /* Images.xcassets */; };
 		2854BDB81B54AC6B003D4339 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2854BDB61B54AC6B003D4339 /* LaunchScreen.xib */; };
 		2854BDC41B54AC6B003D4339 /* MESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854BDC31B54AC6B003D4339 /* MESTests.swift */; };
-		285D47611BC8DF2300197A5C /* QRCodeReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47601BC8DF2300197A5C /* QRCodeReadingViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		285D47651BCCC97500197A5C /* ProductCodeReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47641BCCC97500197A5C /* ProductCodeReadingViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		285D47671BCCF23000197A5C /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47661BCCF23000197A5C /* Staff.swift */; settings = {ASSET_TAGS = (); }; };
-		285D47691BCCF75300197A5C /* ProcessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47681BCCF75300197A5C /* ProcessTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		285D47711BCDFBE700197A5C /* DetailedProcessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47701BCDFBE700197A5C /* DetailedProcessTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		285D47751BCE30C900197A5C /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47741BCE30C900197A5C /* FinalViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		285D47771BCE387C00197A5C /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47761BCE387C00197A5C /* numbers.swift */; settings = {ASSET_TAGS = (); }; };
+		285D47611BC8DF2300197A5C /* QRCodeReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47601BC8DF2300197A5C /* QRCodeReadingViewController.swift */; };
+		285D47651BCCC97500197A5C /* ProductCodeReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47641BCCC97500197A5C /* ProductCodeReadingViewController.swift */; };
+		285D47671BCCF23000197A5C /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47661BCCF23000197A5C /* Staff.swift */; };
+		285D47691BCCF75300197A5C /* ProcessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47681BCCF75300197A5C /* ProcessTableViewController.swift */; };
+		285D47711BCDFBE700197A5C /* DetailedProcessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47701BCDFBE700197A5C /* DetailedProcessTableViewController.swift */; };
+		285D47751BCE30C900197A5C /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47741BCE30C900197A5C /* FinalViewController.swift */; };
+		285D47771BCE387C00197A5C /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D47761BCE387C00197A5C /* Parameters.swift */; };
+		28655BF81BDB842000B8F1C2 /* RecordReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28655BF71BDB842000B8F1C2 /* RecordReviewCell.swift */; };
 		2870FF151B9E72C400E91CBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870FF141B9E72C400E91CBA /* MainViewController.swift */; };
-		2872B7C81BCE98E400656D47 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2872B7C71BCE98E400656D47 /* LoadingCell.xib */; settings = {ASSET_TAGS = (); }; };
 		2899FA1C1B54D7D500DC946A /* PersonalInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2899FA1B1B54D7D500DC946A /* PersonalInformationTableViewController.swift */; };
-		28A0B2CD1BD8B3C0004E9CE3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0B2CC1BD8B3C0004E9CE3 /* Card.swift */; settings = {ASSET_TAGS = (); }; };
-		28A0B2CF1BD8C7BE004E9CE3 /* RecordReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0B2CE1BD8C7BE004E9CE3 /* RecordReviewViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		28A0B2D11BD8C819004E9CE3 /* QualityControlSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0B2D01BD8C819004E9CE3 /* QualityControlSummaryViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		28BE9FCB1BC60947001F9F75 /* ProductSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9FCA1BC60947001F9F75 /* ProductSeriesViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		28BE9FCF1BC649D0001F9F75 /* PhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9FCE1BC649D0001F9F75 /* PhotoImage.swift */; settings = {ASSET_TAGS = (); }; };
-		28E3BF5A1BD53A5A00D3DF96 /* lauchScreenIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E3BF591BD53A5A00D3DF96 /* lauchScreenIcon.png */; settings = {ASSET_TAGS = (); }; };
-		28F6F25B1BCF3C270072AC3F /* QualityControlPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F6F25A1BCF3C270072AC3F /* QualityControlPointViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		28A0B2CD1BD8B3C0004E9CE3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0B2CC1BD8B3C0004E9CE3 /* Card.swift */; };
+		28A0B2CF1BD8C7BE004E9CE3 /* RecordReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0B2CE1BD8C7BE004E9CE3 /* RecordReviewViewController.swift */; };
+		28A0B2D11BD8C819004E9CE3 /* QualityControlSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0B2D01BD8C819004E9CE3 /* QualityControlSummaryViewController.swift */; };
+		28BE9FCB1BC60947001F9F75 /* ProductSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9FCA1BC60947001F9F75 /* ProductSeriesViewController.swift */; };
+		28BE9FCF1BC649D0001F9F75 /* PhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9FCE1BC649D0001F9F75 /* PhotoImage.swift */; };
+		28F6F25B1BCF3C270072AC3F /* QualityControlPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F6F25A1BCF3C270072AC3F /* QualityControlPointViewController.swift */; };
 		BC0FAA4FF2CFC9FAEDAEC53C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70909D6905FF36497EFBCFC6 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -45,8 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28101D8D1BE0AA6E0081E982 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		28101D8E1BE0AA6E0081E982 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		284675711BD0E832007AB152 /* LogoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutTableViewController.swift; sourceTree = "<group>"; };
 		2846BCC61BC79BDC00A61CD9 /* BoardTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTypeTableViewController.swift; sourceTree = "<group>"; };
+		284C72B51BDB625D00F179B2 /* RecordReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordReviewCell.xib; sourceTree = "<group>"; };
 		2854BDA81B54AC6B003D4339 /* MES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2854BDAC1B54AC6B003D4339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2854BDAD1B54AC6B003D4339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,16 +67,15 @@
 		285D47681BCCF75300197A5C /* ProcessTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessTableViewController.swift; sourceTree = "<group>"; };
 		285D47701BCDFBE700197A5C /* DetailedProcessTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedProcessTableViewController.swift; sourceTree = "<group>"; };
 		285D47741BCE30C900197A5C /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
-		285D47761BCE387C00197A5C /* numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numbers.swift; sourceTree = "<group>"; };
+		285D47761BCE387C00197A5C /* Parameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
+		28655BF71BDB842000B8F1C2 /* RecordReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordReviewCell.swift; sourceTree = "<group>"; };
 		2870FF141B9E72C400E91CBA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		2872B7C71BCE98E400656D47 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		2899FA1B1B54D7D500DC946A /* PersonalInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationTableViewController.swift; sourceTree = "<group>"; };
 		28A0B2CC1BD8B3C0004E9CE3 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		28A0B2CE1BD8C7BE004E9CE3 /* RecordReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordReviewViewController.swift; sourceTree = "<group>"; };
 		28A0B2D01BD8C819004E9CE3 /* QualityControlSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QualityControlSummaryViewController.swift; sourceTree = "<group>"; };
 		28BE9FCA1BC60947001F9F75 /* ProductSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSeriesViewController.swift; sourceTree = "<group>"; };
 		28BE9FCE1BC649D0001F9F75 /* PhotoImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoImage.swift; sourceTree = "<group>"; };
-		28E3BF591BD53A5A00D3DF96 /* lauchScreenIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lauchScreenIcon.png; sourceTree = "<group>"; };
 		28F6F25A1BCF3C270072AC3F /* QualityControlPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QualityControlPointViewController.swift; sourceTree = "<group>"; };
 		53A664BA3B83A36E3E7AACB2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		70909D6905FF36497EFBCFC6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,8 +139,6 @@
 				285D47701BCDFBE700197A5C /* DetailedProcessTableViewController.swift */,
 				285D47741BCE30C900197A5C /* FinalViewController.swift */,
 				28F6F25A1BCF3C270072AC3F /* QualityControlPointViewController.swift */,
-				2854BDB41B54AC6B003D4339 /* Images.xcassets */,
-				2854BDB61B54AC6B003D4339 /* LaunchScreen.xib */,
 				2854BDAB1B54AC6B003D4339 /* Supporting Files */,
 			);
 			path = MES;
@@ -145,12 +147,16 @@
 		2854BDAB1B54AC6B003D4339 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2854BDB41B54AC6B003D4339 /* Images.xcassets */,
+				2854BDB61B54AC6B003D4339 /* LaunchScreen.xib */,
 				28BE9FCE1BC649D0001F9F75 /* PhotoImage.swift */,
 				285D47661BCCF23000197A5C /* Staff.swift */,
 				28A0B2CC1BD8B3C0004E9CE3 /* Card.swift */,
-				285D47761BCE387C00197A5C /* numbers.swift */,
-				2872B7C71BCE98E400656D47 /* LoadingCell.xib */,
-				28E3BF591BD53A5A00D3DF96 /* lauchScreenIcon.png */,
+				284C72B51BDB625D00F179B2 /* RecordReviewCell.xib */,
+				28655BF71BDB842000B8F1C2 /* RecordReviewCell.swift */,
+				285D47761BCE387C00197A5C /* Parameters.swift */,
+				28101D8D1BE0AA6E0081E982 /* MyNavigationController.swift */,
+				28101D8E1BE0AA6E0081E982 /* MyTabBarController.swift */,
 				2854BDAC1B54AC6B003D4339 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -275,10 +281,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28E3BF5A1BD53A5A00D3DF96 /* lauchScreenIcon.png in Resources */,
 				2854BDB31B54AC6B003D4339 /* Main.storyboard in Resources */,
 				2854BDB81B54AC6B003D4339 /* LaunchScreen.xib in Resources */,
-				2872B7C81BCE98E400656D47 /* LoadingCell.xib in Resources */,
+				284C72B61BDB625D00F179B2 /* RecordReviewCell.xib in Resources */,
 				2854BDB51B54AC6B003D4339 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,11 +363,14 @@
 				28F6F25B1BCF3C270072AC3F /* QualityControlPointViewController.swift in Sources */,
 				28BE9FCF1BC649D0001F9F75 /* PhotoImage.swift in Sources */,
 				285D47651BCCC97500197A5C /* ProductCodeReadingViewController.swift in Sources */,
+				28101D8F1BE0AA6E0081E982 /* MyNavigationController.swift in Sources */,
 				28A0B2CF1BD8C7BE004E9CE3 /* RecordReviewViewController.swift in Sources */,
-				285D47771BCE387C00197A5C /* numbers.swift in Sources */,
+				285D47771BCE387C00197A5C /* Parameters.swift in Sources */,
 				284675721BD0E832007AB152 /* LogoutTableViewController.swift in Sources */,
 				2870FF151B9E72C400E91CBA /* MainViewController.swift in Sources */,
+				28655BF81BDB842000B8F1C2 /* RecordReviewCell.swift in Sources */,
 				28A0B2CD1BD8B3C0004E9CE3 /* Card.swift in Sources */,
+				28101D901BE0AA6E0081E982 /* MyTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +505,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Han.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -511,6 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Han.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

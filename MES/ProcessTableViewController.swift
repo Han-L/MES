@@ -25,7 +25,9 @@ class ProcessTableViewController: UITableViewController {
         alamofireManager = Alamofire.Manager(configuration: configuration)
         
         alamofireManager!.request(.GET, "http://172.16.101.116:3333/Service1.asmx/selectAWCatalog_1").responseData { response in
+            print(response)
             print(response.result)
+            print(response.data)
             
             if response.data != nil {
                 self.parseXML(response.data!)
@@ -73,13 +75,13 @@ class ProcessTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if let accessNumber = NSNumberFormatter().numberFromString(staff.accessRight!)?.intValue {
-            if accessNumber <= 3 {
-                return 2
-            } else {
-                return 1
-            }
-        }
+//        if let accessNumber = NSNumberFormatter().numberFromString(staff.accessRight!)?.intValue {
+//            if accessNumber <= 3 {
+//                return 2
+//            } else {
+//                return 1
+//            }
+//        }
         
         if card.cardType != nil {
             return 2
@@ -99,21 +101,20 @@ class ProcessTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("process", forIndexPath: indexPath)
-        //let label = cell.viewWithTag(1000) as! UILabel
         
         switch indexPath.section {
             
         case 0:
             cell.textLabel!.text = information[indexPath.row]
-        cell.textLabel!.textColor = UIColor.darkTextColor()
-        cell.textLabel!.textAlignment = .Natural
-        cell.accessoryType = .DisclosureIndicator
+            cell.textLabel!.textColor = UIColor.darkTextColor()
+            cell.textLabel!.textAlignment = .Natural
+            cell.accessoryType = .DisclosureIndicator
         case 1:
             let titleArray = ["质量控制点-总结", "记录详情查看"]
             cell.textLabel!.text = titleArray[indexPath.row]
-        cell.textLabel!.textColor = UIColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1)
-        cell.textLabel!.textAlignment = .Center
-        cell.accessoryType = .None
+            cell.textLabel!.textColor = UIColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1)
+            cell.textLabel!.textAlignment = .Center
+            cell.accessoryType = .None
             
         default: break
         }

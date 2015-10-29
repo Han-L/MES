@@ -18,6 +18,8 @@ class ProductCodeReadingViewController: QRCodeReadingViewController {
             self.barCodeDetected = false
             self.configureCardInformation(decodedNumber)
             
+            self.navigationController?.popViewControllerAnimated(true)
+            
             let myStoryBoard = self.storyboard
             let vc = myStoryBoard!.instantiateViewControllerWithIdentifier("process")
             self.navigationController?.pushViewController(vc, animated: true)

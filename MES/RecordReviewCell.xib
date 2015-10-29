@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecordReviewCell" id="7vW-oZ-AcR" customClass="RecordReviewCell" customModule="MES" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7vW-oZ-AcR" id="uek-wQ-ov4">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="VaA-nQ-QlI">
+                        <rect key="frame" x="8" y="11" width="54.5" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-E8-7ju">
+                        <rect key="frame" x="70.5" y="11" width="54.5" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="bfa-fB-9Ts">
+                        <rect key="frame" x="133" y="11" width="54" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="ix8-Z9-2Ha">
+                        <rect key="frame" x="195" y="11" width="54.5" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="O1m-66-2tb">
+                        <rect key="frame" x="257.5" y="11" width="54.5" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="ix8-Z9-2Ha" firstAttribute="centerY" secondItem="uek-wQ-ov4" secondAttribute="centerY" id="25I-KV-rSE"/>
+                    <constraint firstItem="O1m-66-2tb" firstAttribute="width" secondItem="VaA-nQ-QlI" secondAttribute="width" id="4Ih-GX-2Uu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="O1m-66-2tb" secondAttribute="trailing" id="537-b3-gzg"/>
+                    <constraint firstItem="VaA-nQ-QlI" firstAttribute="leading" secondItem="uek-wQ-ov4" secondAttribute="leadingMargin" id="5jG-L2-A3u"/>
+                    <constraint firstItem="VaA-nQ-QlI" firstAttribute="centerY" secondItem="uek-wQ-ov4" secondAttribute="centerY" id="7bN-Ii-z0a"/>
+                    <constraint firstItem="O1m-66-2tb" firstAttribute="centerY" secondItem="uek-wQ-ov4" secondAttribute="centerY" id="Br3-4T-aNO"/>
+                    <constraint firstItem="0hi-E8-7ju" firstAttribute="centerY" secondItem="uek-wQ-ov4" secondAttribute="centerY" id="HA8-8W-hML"/>
+                    <constraint firstItem="bfa-fB-9Ts" firstAttribute="leading" secondItem="0hi-E8-7ju" secondAttribute="trailing" constant="8" symbolic="YES" id="HYJ-iW-hdT"/>
+                    <constraint firstItem="ix8-Z9-2Ha" firstAttribute="leading" secondItem="bfa-fB-9Ts" secondAttribute="trailing" constant="8" symbolic="YES" id="Jrv-nZ-fBW"/>
+                    <constraint firstItem="ix8-Z9-2Ha" firstAttribute="width" secondItem="VaA-nQ-QlI" secondAttribute="width" id="Jxy-aB-znQ"/>
+                    <constraint firstItem="0hi-E8-7ju" firstAttribute="leading" secondItem="VaA-nQ-QlI" secondAttribute="trailing" constant="8" symbolic="YES" id="Uqc-XT-Fsy"/>
+                    <constraint firstItem="0hi-E8-7ju" firstAttribute="width" secondItem="VaA-nQ-QlI" secondAttribute="width" id="e3z-b2-cYC"/>
+                    <constraint firstItem="0hi-E8-7ju" firstAttribute="width" secondItem="uek-wQ-ov4" secondAttribute="width" multiplier="1/5" id="e6q-kt-O9V"/>
+                    <constraint firstItem="O1m-66-2tb" firstAttribute="leading" secondItem="ix8-Z9-2Ha" secondAttribute="trailing" constant="8" symbolic="YES" id="ezV-Sk-HEn"/>
+                    <constraint firstItem="bfa-fB-9Ts" firstAttribute="centerY" secondItem="uek-wQ-ov4" secondAttribute="centerY" id="hWm-Rd-DTx"/>
+                    <constraint firstItem="bfa-fB-9Ts" firstAttribute="width" secondItem="VaA-nQ-QlI" secondAttribute="width" id="meY-Ru-Enh"/>
+                    <constraint firstItem="VaA-nQ-QlI" firstAttribute="width" secondItem="uek-wQ-ov4" secondAttribute="width" multiplier="1/5" id="rdg-SF-XxY"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="rdg-SF-XxY"/>
+                        <exclude reference="e6q-kt-O9V"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="dateLabel" destination="O1m-66-2tb" id="MMx-3q-w2a"/>
+                <outlet property="nameLabel" destination="VaA-nQ-QlI" id="Psu-Gc-mLd"/>
+                <outlet property="numberLabel" destination="0hi-E8-7ju" id="jz4-0s-68v"/>
+                <outlet property="operationLabel" destination="bfa-fB-9Ts" id="Uy6-c4-Q9k"/>
+                <outlet property="resultLabel" destination="ix8-Z9-2Ha" id="77D-v0-hRu"/>
+            </connections>
+            <point key="canvasLocation" x="329" y="325"/>
+        </tableViewCell>
+    </objects>
+</document>

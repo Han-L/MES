@@ -9,7 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "productSeries"
-private let sectionInsects = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+private let sectionInsects = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
 private let product = [["name": productSeries[0], "image": "\(productSeries[0]).png"],
     ["name": productSeries[1], "image": "\(productSeries[1]).png"],
     ["name": productSeries[2], "image": "\(productSeries[2]).png"],
@@ -17,12 +17,15 @@ private let product = [["name": productSeries[0], "image": "\(productSeries[0]).
 
 
 
-class ProductSeriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverPresentationControllerDelegate {
+class ProductSeriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    @IBAction func goBack() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem?.title = staff.name
     }
 
     // MARK: - Navigation
@@ -33,19 +36,19 @@ class ProductSeriesViewController: UIViewController, UICollectionViewDataSource,
             tvc.title = (sender!.contentView.viewWithTag(1001) as! UILabel).text! + "卡件类型"
         }
         
-        if segue.identifier == "logoutPage" {
-            if let tvc = segue.destinationViewController as? LogoutTableViewController {
-                if let ppc = tvc.popoverPresentationController {
-                    ppc.permittedArrowDirections = UIPopoverArrowDirection.Up
-                    ppc.delegate = self
-                }
-            }
-        }
+//        if segue.identifier == "logoutPage" {
+//            if let tvc = segue.destinationViewController as? LogoutTableViewController {
+//                if let ppc = tvc.popoverPresentationController {
+//                    ppc.permittedArrowDirections = UIPopoverArrowDirection.Up
+//                    ppc.delegate = self
+//                }
+//            }
+//        }
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
-    }
+//    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+//        return UIModalPresentationStyle.None
+//    }
 
 
     // MARK: UICollectionViewDataSource

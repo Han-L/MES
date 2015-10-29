@@ -27,9 +27,11 @@ class FinalViewController: UIViewController {
         super.viewDidLoad()
         
         QCPButton.enabled = false
-        if let accessNumber = NSNumberFormatter().numberFromString(staff.accessRight!)?.intValue {
-            if accessNumber <= 3 {
-                QCPButton.enabled = true
+        if card.cardType != nil {
+            if let accessNumber = NSNumberFormatter().numberFromString(staff.accessRight!)?.intValue {
+                if accessNumber <= 3 {
+                    QCPButton.enabled = true
+                }
             }
         }
         
@@ -64,7 +66,12 @@ class FinalViewController: UIViewController {
                 }
             }
             self.hud.hide(true)
-            self.textView.text = self.information[0]
+            
+            var temporaryString = ""
+            for n in 0...self.information.count - 1 {
+                temporaryString += self.information[n]
+            }
+            self.textView.text = temporaryString
         }
     }
 
@@ -78,8 +85,10 @@ class FinalViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let controller = segue.destinationViewController as? QualityControlPointViewController {
-            controller.finalProcess = self.finalProcess
+        if let nvc = segue.destinationViewController as? UINavigationController {
+            if let controller = nvc.visibleViewController as? QualityControlPointViewController {
+                controller.finalProcess = self.finalProcess
+            }
         }
     }
 }

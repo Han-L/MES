@@ -45,8 +45,11 @@ class PersonalInformationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem?.enabled = false
+        
         if visitorModeOn! {
             setVisitorModeOn()
+            self.navigationItem.rightBarButtonItem?.enabled = true
         } else {
             hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             hud.labelText = "请稍候…"
@@ -108,6 +111,7 @@ class PersonalInformationTableViewController: UITableViewController {
         idNumberLabel.text = information[0]
         nameLabel.text = information[1]
         accessRightLabel.text = information[3]
+        self.navigationItem.rightBarButtonItem?.enabled = true
     }
 
 }
