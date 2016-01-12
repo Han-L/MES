@@ -1,10 +1,3 @@
-//
-//  LGScanViewController.swift
-//  LGScanViewController
-//
-//  Created by jamy on 15/9/22.
-//  Copyright © 2015年 jamy. All rights reserved.
-//
 
 import UIKit
 import AVFoundation

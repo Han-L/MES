@@ -15,11 +15,11 @@ struct Card {
     var cardSerial: String?
     var manName: String?
     var productionBatch: String?
+    
+    init(cardType: String?, cardSerial: String?, manName: String?, productionBatch: String?) {}
+    init() {}
 }
 
 func resetCard() {
-    card.cardType = nil
-    card.cardSerial = nil
-    card.manName = nil
-    card.productionBatch = nil
+    card = Card()
 }

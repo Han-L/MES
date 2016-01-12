@@ -3,7 +3,7 @@
 //  QRCodeReader
 //
 //  Created by Han_Luo on 14/07/2015.
-//  Copyright (c) 2015 Han_Luo. All rights reserved.
+//  Copyright (c) 2015 Han_Luo. All rightsvarserved.
 //
 
 import UIKit
@@ -24,9 +24,10 @@ class PersonalInformationTableViewController: UITableViewController {
     var information = [String]()
     
     @IBAction func login() {
-        staff.name = nameLabel.text
-        staff.idNumber = idNumberLabel.text
-        staff.accessRight = accessRightLabel.text
+//        staff.name = nameLabel.text
+//        staff.idNumber = idNumberLabel.text
+//        staff.accessRight = accessRightLabel.text
+        staff = Staff(name: nameLabel.text, idNumber: idNumberLabel.text, accessRight: accessRightLabel.text)
         performSegueWithIdentifier("login", sender: self)
     }
     

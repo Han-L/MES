@@ -41,10 +41,11 @@ class ProductCodeReadingViewController: QRCodeReadingViewController {
     func configureCardInformation(theString: String) {
         digitsArray = theString.componentsSeparatedByString(",")
         print(digitsArray)
-        card.cardType = digitsArray[0]
-        card.cardSerial = digitsArray[1]
-        card.manName = digitsArray[2]
-        card.productionBatch = digitsArray[3]
+        card = Card(cardType: digitsArray[0], cardSerial: digitsArray[1], manName: digitsArray[2], productionBatch: digitsArray[3])
+//        card.cardType = digitsArray[0]
+//        card.cardSerial = digitsArray[1]
+//        card.manName = digitsArray[2]
+//        card.productionBatch = digitsArray[3]
     }
 
 }

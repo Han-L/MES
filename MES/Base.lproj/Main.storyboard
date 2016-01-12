@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yOq-nU-rTQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yOq-nU-rTQ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -86,6 +86,14 @@
                             <constraint firstAttribute="centerX" secondItem="PAA-DR-dPj" secondAttribute="centerX" id="wKi-0y-ksA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="codeButton" destination="DWc-Cf-Dwc" id="3EC-qd-iqd"/>
+                        <outlet property="iconPic" destination="PAA-DR-dPj" id="xQi-bY-vzh"/>
+                        <outlet property="lowerConstraint" destination="hlQ-ou-air" id="ofh-zQ-hgl"/>
+                        <outlet property="middleConstraint" destination="DFK-4t-CO9" id="yXP-Vz-DOn"/>
+                        <outlet property="upperConstraint" destination="JNd-CA-DAd" id="abX-BY-F5L"/>
+                        <outlet property="visitorButton" destination="F33-tq-pOg" id="CWR-HX-6GT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xj-N2-ewn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,7 +404,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -443,7 +451,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -526,7 +534,7 @@
                                 <rect key="frame" x="266" y="289" width="68" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -564,7 +572,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -806,11 +814,11 @@
             </objects>
             <point key="canvasLocation" x="4081" y="301"/>
         </scene>
-        <!--个人-->
+        <!--我的-->
         <scene sceneID="b8K-7e-ff1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KeW-VN-G2n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="个人" image="user" id="22F-7s-ldS"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="user" id="22F-7s-ldS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9fW-MX-BGw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -826,7 +834,7 @@
             </objects>
             <point key="canvasLocation" x="3341" y="1073"/>
         </scene>
-        <!--个人-->
+        <!--我的-->
         <scene sceneID="KHD-Vq-5mH">
             <objects>
                 <tableViewController id="aD4-I3-H8h" customClass="LogoutTableViewController" customModule="MES" customModuleProvider="target" sceneMemberID="viewController">
@@ -834,9 +842,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="个人" id="ZqF-bB-uh0">
+                            <tableViewSection headerTitle="我" id="ZqF-bB-uh0">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="5oG-ce-qIe" style="IBUITableViewCellStyleDefault" id="Nfs-bY-63b">
                                         <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
@@ -930,7 +938,7 @@
                             <outlet property="delegate" destination="aD4-I3-H8h" id="EzP-EA-Lj9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="个人" id="Unf-yc-Cap"/>
+                    <navigationItem key="navigationItem" title="我的" id="Unf-yc-Cap"/>
                     <connections>
                         <outlet property="productName" destination="vQG-Vo-IzF" id="dVJ-vj-2WD"/>
                         <outlet property="staffName" destination="5oG-ce-qIe" id="B46-id-70x"/>
@@ -970,6 +978,6 @@
         <image name="user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Myd-UB-0Qv"/>
+        <segue reference="5Fs-Zd-5Bg"/>
     </inferredMetricsTieBreakers>
 </document>

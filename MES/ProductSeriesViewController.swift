@@ -54,7 +54,6 @@ class ProductSeriesViewController: UIViewController, UICollectionViewDataSource,
     // MARK: UICollectionViewDataSource
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return product.count
     }
 

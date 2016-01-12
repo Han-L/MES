@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -66,18 +65,10 @@
                     <constraint firstItem="ix8-Z9-2Ha" firstAttribute="width" secondItem="VaA-nQ-QlI" secondAttribute="width" id="Jxy-aB-znQ"/>
                     <constraint firstItem="0hi-E8-7ju" firstAttribute="leading" secondItem="VaA-nQ-QlI" secondAttribute="trailing" constant="8" symbolic="YES" id="Uqc-XT-Fsy"/>
                     <constraint firstItem="0hi-E8-7ju" firstAttribute="width" secondItem="VaA-nQ-QlI" secondAttribute="width" id="e3z-b2-cYC"/>
-                    <constraint firstItem="0hi-E8-7ju" firstAttribute="width" secondItem="uek-wQ-ov4" secondAttribute="width" multiplier="1/5" id="e6q-kt-O9V"/>
                     <constraint firstItem="O1m-66-2tb" firstAttribute="leading" secondItem="ix8-Z9-2Ha" secondAttribute="trailing" constant="8" symbolic="YES" id="ezV-Sk-HEn"/>
                     <constraint firstItem="bfa-fB-9Ts" firstAttribute="centerY" secondItem="uek-wQ-ov4" secondAttribute="centerY" id="hWm-Rd-DTx"/>
                     <constraint firstItem="bfa-fB-9Ts" firstAttribute="width" secondItem="VaA-nQ-QlI" secondAttribute="width" id="meY-Ru-Enh"/>
-                    <constraint firstItem="VaA-nQ-QlI" firstAttribute="width" secondItem="uek-wQ-ov4" secondAttribute="width" multiplier="1/5" id="rdg-SF-XxY"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="rdg-SF-XxY"/>
-                        <exclude reference="e6q-kt-O9V"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
